@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="" />
+    
+</head>
+
+<body>
+    <div id="capainicial"></div>
+
+        <div id="c0">
+            <p id="p0">Parrafo 0 en capa 0</p>
+            <p id="p1" align = "center">Parrafo 1 en capa 0</p>
+            <p id="p2">Parrafo 2 en capa 0</p>
+        </div>
+        <button type="button" onclick="(mifuncion())">Pulse aqui</button>
+</body>
+<script>
+        capa0=document.getElementById("c0");
+        console.log(capa0);
+
+        hijos = capa0.childNodes;
+        console.log(hijos);
+        console.log(hijos[2]);
+        capas = document.getElementsByTagName("div");
+        console.log(capas);
+        for (let i = 0; i < capas.length; i++) {
+            console.log(capas[i].id);
+            alert(capas[i].id);
+        }
+        miParrafo = document.createElement("p");
+        miParrafo.id="p1527";
+        console.log(miParrafo);
+        miTexto = document.createTextNode("Mi texto");
+        console.log("Variable miTexto" + miTexto);
+        miParrafo.appendChild(miTexto);
+        console.log(miParrafo);
+        document.body.appendChild(miParrafo);
+        capaInicial = document.getElementById("capainicial");
+        console.log(capaInicial);
+        capa = document.getElementById("capaInicial");
+
+        p = document.getElementById("p1");
+        console.log(p.getAttribute("align"));
+        console.log(p.align);
+        console.log(p.attributes.getNamedItem("align"));
+
+        miImagen = document.createElement("img");
+        miImagen.src="./images/Coche1.png";
+        c=document.getElementById("c1");
+        document.body.appendChild(miImagen);
+        ruta = prompt("Dime Imagen");
+        document.getElementsByTagName("img")[0].src=ruta;
+
+        p = document.getElementById("p1");
+        p.firstChild.nodeValue = "@@@@@@@@@@@@@@";
+        function mifuncion(){
+            alert("Hello World");
+        }
+        //mifuncion();
+
+
+        </script>
+
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Tabla de multiplicar del 7</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+<!--
+numero = prompt("Dame un numero", "Introduce un numero");
+if(numero == null){
+    alert("Error");
+}
+document.write("<table border = 1");
+alert(numero);
+for (let index = 1; index < 11; index++) {
+    if(index%2==0){
+        document.write("<tr bgcolor = 'blue'><td>" + numero + "</td><td> X <td> " + index + "</td><td> = <td>" + numero * index + "</tr></td>");
+    } else {
+        document.write("<tr bgcolor = 'white'><td>" + numero + "</td><td> X <td> " + index + "</td><td> = <td>" + numero * index + "</tr></td>");
+    }
+}
+document.write("</table>");
+//-->
+</script>
+</body>
+</html>

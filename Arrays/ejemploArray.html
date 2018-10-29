@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+</body>
+
+<script>
+    frutas = new Array("Fresa", "Banana", 25, true);
+    frutas.push('Mango');
+    document.write(frutas + "</br>");
+    // ["Fresa", "Banana", "Mango"];
+
+    var pos = frutas.indexOf('Banana');
+    document.write(pos);//Con el pos -1 coge el ultimo
+    //El splice permite borrar e insertar
+    var elementoEliminado = frutas.splice(pos, 1); // así es como se elimina un elemento
+    document.write("</br>" + elementoEliminado + "</br>");
+    document.write(frutas);
+    // 1
+    var word = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+
+    const result = word.filter(function (word) {
+        console.log(word, word.length);
+        if (word.length > 6) {
+            return word;
+        }
+    });
+    const result2 = word.filter(word => word.length > 6);
+
+    console.log(result);
+    console.log(result2);
+
+</script>
+
+</html>

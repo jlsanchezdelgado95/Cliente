@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <script>
+        let calendario = "<table>";
+        let dias = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+        let mes = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'];
+        let miFecha = new Date();
+        let diaMes = mes[miFecha.getMonth()];
+        miFecha.setDate(1);//Cambio la fecha, para coger el primer dia
+        let diaUno = miFecha.getDay();
+        //let primerDia = new Date(miFecha.getFullYear() + mes[miFecha.getMonth() + 2]);
+        //let ultimoDia = new Date(miFecha.getFullYear(), miFecha.getMonth() + 1, 0);
+        //console.log(primerDia.getDate());
+        //console.log(diaUno.getDate());
+        //console.log(ultimoDia.getDate());
+
+        if (diaUno == 0) {
+            diaUno = 7;
+        }
+        calendario = "<table mode=1>";
+        if (miFecha.getMonth == (1, 3, 5, 7, 8, 10, 12)) {
+            numDias = 31;
+        } else if (miFecha.getMonth == 2) {
+            numDias = 28;
+        } else {
+            numDias = 30;
+        }
+        calendario += "<h2>" + "Calendario de " + mes[miFecha.getMonth()] + " de " + miFecha.getFullYear() + "</h2>";
+        //creamos los días de la tabla
+        for (let i = 0; i < 7; i++) {
+            calendario += "<td>" + dias[i] + "</td>";
+        }
+        blancos = diaUno - 1;
+        calendario += "<tr>";
+        /*
+        for (let i = 1; i <= blancos; i++) {//Pinto los blancos
+            calendario += "<td></td>";
+        }
+        for (let i = 1; i <= 7 - diaUno + 1; i++) {//Pintamos por primera vez
+            calendario += "<td>" + i;
+        }
+        calendario +="<tr>";
+        n = 0;
+        for (let i = (7-diaUno+2); i <= numDias; i++) {//El 2 viene de la formula de antes
+            calendario +="<td>" + i;//En vez de +1, +2 al ser la segunda fila
+            n++;
+            if(n%7 == 0){
+                calendario += "<tr>";
+                n = 0;
+            }
+        }
+        */
+        //Solucion en un solo bucle
+        for (let i = 1; i <= (blancos + numDias); i++) {
+            if (i <= blancos) {
+                calendario += "<td>";
+            } else {
+                calendario += "<td>" + (i - blancos);
+            }
+            if (i % 7 == 0) {
+                calendario += "<tr>";
+            }
+        }
+        calendario += "</table>";
+
+        document.write(calendario);
+        //Creamos calendario, num serán los días y primerDia una fecha temporal para saber por cual día empieza el mes
+        /*        for (let i = 0; i < ultimoDia.getDate()/7; i++) {
+                    calendario += "<tr>";
+                    for (let j = 1; j < 8; j++) {
+                        calendario += "<td>";
+                        if (((j < primerDia.getDay()) && i==1 && i>31)) {
+                            calendario += "";
+                        } else {
+                            calendario += num++;
+                        }
+                    }
+                }*/
+    </script>
+</body>
+
+</html>

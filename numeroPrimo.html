@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Numeros primos</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+<!--
+numero = prompt("Dame un numero", "Introduce un numero");
+if(numero == null){
+    alert("Error");
+}
+document.write("<table border = 1");
+alert("El numero indicado es el " + numero);
+for (i = numero; i => 1; i--) {
+    div = 0;
+    for (let j = i; j => 1; j--) {
+        if(i%j == 0){
+            div++;
+        }
+        if(div>2){
+            document.write(numero + " No es primo.");
+        } else{
+            document.write(numero + " Es primo.");
+        }
+    }
+}
+//-->
+</script>
+</body>
+</html>

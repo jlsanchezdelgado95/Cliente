@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css" />-->
+    </head>
+<body>
+    <script>
+    peticion = new XMLHttpRequest();
+    peticion.onload = function(){
+        console.log(peticion.responseText);
+        misPaises=JSON.parse(peticion.responseText);
+        misPaises.map(function(n){
+            alert(n.id + " " + n.tittle);
+        })
+    }
+    peticion.open('GET','http:localhost:3000/posts',true);
+    peticion.send();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<script>
+    "use strict"
+    function suma(a, b) {
+        return a + b;
+    }
+
+    function suma2(a, b) {
+        if (b == undefined) {
+            return a;
+        } else {
+            return a + b;
+        }
+    }
+
+    function suma3() {
+        console.log(arguments[0]);
+        console.log(arguments[1]);
+    }
+    
+    function sumaDefecto(a,b=10){
+return a+b;
+    }
+
+    let misuma = function suma(a,b){
+        return a+b;
+    }
+
+    function mensaje(){
+        console.log("HOLA");
+    }
+
+    console.log(sumaDefecto(2));
+    console.log(suma(1, 2));//Normal
+    console.log(suma(1));//Falta parametro
+    console.log(suma(1, 2, 3));//Parametros de mas
+    console.log(suma2(1));//Falta parametro pero compruebo
+    suma3(1,2,3,4,5,6,7,8,9);//Nos pasamos de parametros, muestra el length
+    suma3('Pepe',true);//Nos muestra 2
+    console.log(misuma);//Saca el codigo de la funcion
+    console.log(misuma(5,9));//Ejecucion de la funcion
+
+    //setInterval(mensaje,2000);// funciones como parametro
+
+    //setInterval(function(){console.log("Adios")}, 2000);
+
+    function sum(...datos){
+        console.log(datos.length);
+    }
+    sum(1,2,3,4,5,6,"pepe");
+    function sum2(a,b,c,...datos){
+        console.log(datos.length);
+        console.log(datos[datos.length - 1]);//Para no pasarnos del Array
+    }
+    sum2(1,2,3,4,5,6,"pepe");
+
+</script>

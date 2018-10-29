@@ -1,0 +1,110 @@
+<body>
+    <script>
+        /*Espanya = ["Valencia", "Madrid", "Barcelona"];
+        Francia = ["Touluse", "Paris", "Marsella"];
+        Portugal = ["Lisboa", "Ciudad Random 2"];*/
+        paises = [{
+            "nombre": "Espanya",
+            "ciudades": ["Valencia", "Madrid", "Barcelona"]
+        },
+        {
+            "nombre": "Francia",
+            "ciudades": ["Touluse", "Paris", "Marsella"]
+        },
+        {
+            "nombre": "Portugal",
+            "ciudades": ["Lisboa", "Ciudad Random 2"]
+        }
+        ];
+        function seleccion() {
+            lista = document.getElementById("alumnos");
+            console.log(lista.value);
+            console.log(lista.text);//El text esta asignado a option por eso sale undefined
+            for (let i = 0; i < lista.length; i++) {
+                texto = lista.options[i].text;
+                valor = lista.options[i].value;
+                seleccionado = lista.options[i].selected;
+                console.log("El alumno: " + texto + " su nota es " + valor + " esta seleccionado " + seleccionado);
+            }
+        }
+        function cambia() {
+            lista = document.getElementById("alumnos");
+            lista.options[2].selected = true;
+        }
+        function nuevo() {
+            lista = document.getElementById("alumnos");
+            opcion = document.createElement("option");
+            opcion.text = "Mario Martinez";
+            opcion.value = "4";
+            //lista.appendChild(opcion);
+            lista.add(opcion, 1);//Nos permite añadirlo en la posicion que queramos
+            //lista.insertBefore[opcion,1];
+        }
+        function borrar() {
+            lista = document.getElementById("alumnos");
+            //lista.remove(1);
+            lista.length = 0;
+            for (let i = 0; i < lista.length; i++) {
+                lista.remove(lista.length);
+            }
+
+        }
+
+        function ponCiudades() {
+            pais = documet.getElementById("paises").value;
+        }
+        function verPais() {
+            paises.map(function (n) {
+                console.log(n.nombre);
+            })
+        }
+        function mostrarCiudades() {
+            posicion = document.getElementById("alumnos");
+            alert(document.getElementById("alumnos").text);
+            switch (paises.value) {
+                case "Espanya":
+                    for (let i = 0; i < Espanya.length; i++) {
+                        console.log(Espanya[i]);
+                    }
+                    break;
+                case "Francia":
+                    for (let i = 0; i < Francia.length; i++) {
+                        console.log(Francia[i]);
+                    }
+                    break;
+                case "Portugal":
+                    for (let i = 0; i < Portugal.length; i++) {
+                        console.log(Portugal[i]);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        function mostrarCiudades2() {
+            pais = document.getElementById("pais").value;
+            //alert(document.getElementById("paises").text);
+            console.log(pais);
+            miPais = paises.filter(function(n) {
+                if (n.nombre == pais) 
+                    return n;
+            })
+            console.log(miPais[0]);
+            for (let i = 0; i < ciudades.length; i++) {
+                
+            }
+        }
+    </script>
+    <select id="pais" onchange="verPais()">
+        <option value="Espanya">Espanya</option>
+        <option value="Francia">Francia</option>
+        <option value="Portugal">Portugal</option>
+        <input type="button" value="seleccion" onClick="seleccion();">
+        <input type="button" value="cambiar" onClick="cambia();">
+        <input type="button" value="nuevo" onClick="nuevo();">
+        <input type="button" value="Borrar" onClick="borrar();">
+        <input type="button" value="Pais" onClick="mostrarCiudades2();">
+    </select>
+</body>

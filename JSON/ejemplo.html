@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tienda</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <script>
+        /*articulos = [{//Meter los articulos por json
+            "nombre": "Espanya",
+            "ciudades": ["Valencia", "Madrid", "Barcelona"]
+        },
+        {
+            "nombre": "Francia",
+            "ciudades": ["Touluse", "Paris", "Marsella"]
+        },
+        {
+            "nombre": "Portugal",
+            "ciudades": ["Lisboa", "Ciudad Random 2"]
+        }
+        ];*/
+        /*Class Articulo*/
+        function Articulo(cod, nom, des, pvp) {
+            this.codigo = cod;
+            this.nombre = nom;
+            this.descripcion = des;
+            this.precio = pvp;
+        }
+        /*Fin Class Articulo*/
+/*-----------------  Class carrito ---------------------------*/
+        function Carrito(num, fecha) {
+            this.numero = num;
+            this.fecha = fecha;
+            this.articulos = [];
+        }
+
+        Carrito.prototype.anyadoArticulo = function (art) {
+            json = JSON.stringify(art);
+            this.articulos.push(json);
+            }
+            
+        Carrito.prototype.vistaArticulos = function(){
+            miCarrito.articulos.forEach(function (n) {
+                document.body.innerHTML +="Codigo: " + n.codigo + " Nombre: " 
+                    + n.nombre + " Descripcion: " + n.descripcion
+                    + " Precio: " + n.precio;
+            });
+        }
+
+/* ----------------- Fin class carrito -----------------------------*/
+
+
+        miCarrito = new Carrito(125, "25/10/2018");
+        function comprar() {
+            nombre = document.getElementById("productos").value;
+            let producto = nombre.split("|");
+            art = new Articulo();
+            art.codigo = producto[0];
+            art.nombre = producto[1];
+            art.descripcion = producto[2];
+            art.precio = producto[3];
+            console.log(art);
+            miCarrito.anyadoArticulo(art);
+        }
+        function verCarrito() {
+
+                miCarrito.vistaArticulos();
+        }
+    </script>
+    <select id="productos">
+        <option value="1|Portatil|Descripcion 1|500">Portatil 1</option>
+        <option value="2|Portatil|Descripcion 2|400">Portatil 2</option>
+        <option value="3|Tablet|Descripcion 3| 750">Tablet 1</option>
+        <input type="button" value="anyadir" onClick="comprar();">
+        <input type="button" value="verCarrito" onClick="verCarrito();">
+    </select>
+</body>
+
+</html>

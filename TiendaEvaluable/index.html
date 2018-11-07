@@ -10,81 +10,27 @@
 </head>
 
 <body>
-    <div class="contenedor1">
-        <div id="art1" class="img1">
-            <img src="images/alienware.png" onclick="anyade(this)">
-            <p class="precio">1500</p>
+    <h1>Catalogo de ordenadores</h1>
+    <div class="contenedorExpositor">
+        <div id="art1" class="img1" onclick="anyade(this)">
+            <img class="pc-1" value="images/alienware.png" src="images/alienware.png" >
+            <p id="precio1">1500</p>
         </div>
         <div id="art2" class="img2" onclick="anyade(this)">
-            <img src="images/laptop15XPS.png">
-            <p class="precio">1400</p>
+            <img class="pc-2" value="images/laptop15XPS.png" src="images/laptop15XPS.png">
+            <p id="precio2">1400</p>
         </div>
         <div id="art3" class="img3" onclick="anyade(this)">
-            <img src="images/latitude5290.jpg" width="300px" height="200px">
-            <p class="precio">1450</p>
+            <img class="pc-3" value="images/latitude5290.jpg" src="images/latitude5290.jpg" width="300px" height="200px">
+            <p id="precio3">1450</p>
         </div>
     </div>
 
-    <div id="carrito" class="contenedor2">
+    <div id="contenedorCarrito" class="contenedorCarrito">
     </div>
-
-    <script>
-        "use script"    
-        function anyade(articulo) {
-            precio = articulo.getAttribute("precio");
-            newDiv = document.createElement("div");
-            newDiv.id = "C" + articulo.id;
-            if (document.getElementById("C" + articulo.id) == null) {//Crear uno nuevo
-                pUnidad = document.createTextNode("Unidad/es" + 1);
-            pPrecio = document.createTextNode("Precio " + (precio));
-            newDiv.appendChild(pUnidad);
-            newDiv.appendChild(pPrecio);
-            console.log(newDiv);
-            document.body.appendChild(newDiv);   
-            } else {//Modificar
-
-            }
-            
-        }
-
-        /*
-        En la funcion hacer if(document.gerElementById("C"+articulo.id)==null){
-            No esta, se hace uno nuevo al carrito
-        } else {
-            como existe, se modifica
-        }
-        La funcion anyade (articulo)
-        articulo.id
-        Div padre CARRITO
-        1º crear Div del articulo, crear img(acceder al src del original)(LO HACEMOS HIJO DEL DIV CARRITO)
-        TODOS HIJOS DEL DIV
-        crear P del texto original
-        crear p unidades 1,2,3 los que tenga
-        crear p total precio * cantidad
-        crear 2 button para borrar una unidad y borrar todos
-        Cuando lleve el producto al carrito, concatenar a la id algo que lo
-        identifique que sea del carro(concatenar)
-        Para buscar con el DOM seria algo como
-        carrito = document.getElemenyById("carrito")(NOs coge el elemento carrito div)
-        articuloCarrio = Carrito.getElementById("C" + div(div del divcontenedor 1).Id)/Para buscar el articulo
-        miboton = document.createElement("button");
-        textoBoton = document.createTextNode("Borrar");
-        miboton.id = "boton1";
-        miboton.appendChild(textoBoton);
-        document.body.appendChild(miboton);
-        miboton.onclick = function(){           => Funcion anonima
-            (La funcion para borrar);
-            cuando haga click, hare el parentNode, y desde ahi buscare los parrafos(buscare el segundo)
-            Y a ese texto le cambiare el que habia por uno menos
-        };
-        La funcion borrar todo es eliminar el hijo entero accediendo primero al padre
-        Tanto al borrar uno o borrar todo, hay que modificar el carrito
-        Tambien un vacio carrito que es eliminar todos los hijos del div carrito
-
-
-
-        */
-    </script>
+    <p id="precioTotal"></p>
+    <button id="limpiarCarro" onclick="limpiarCarro()">Borrar todo el carro</button>
 </body>
-
+<!-- Lo pongo aqui para que no haya problemas a la hora de ejecutar el script -->
+<script src="javascript/script.js"></script>
 </html>

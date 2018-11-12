@@ -1,25 +1,113 @@
 <!DOCTYPE html>
 <html>
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css" />-->
-    </head>
-<body>
-    <script>
-    peticion = new XMLHttpRequest();
-    peticion.onload = function(){
-        console.log(peticion.responseText);
-        misPaises=JSON.parse(peticion.responseText);
-        misPaises.map(function(n){
-            alert(n.id + " " + n.tittle);
-        })
+</head>
+<style>
+    button{
+        width:50px;
+        height: 50px;
     }
-    peticion.open('GET','http:localhost:3000/posts',true);
-    peticion.send();
-</script>
-
+</style>
+<body>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
 </body>
+<script>
+    $("#get").click(function () {
+        $.ajax({
+            // la URL para la petición
+            url: 'http:localhost:3000/posts',
+            // la información a enviar
+            // (también es posible utilizar una cadena de datos)
+            // especifica si será una petición POST o GET
+            // EL data se pone, si es para filtrar
+            type: 'GET',
+            // el tipo de información que se espera de respuesta
+            dataType: 'json',
+            // código a ejecutar si la petición es satisfactoria;
+            // la respuesta es pasada como argumento a la función
+            //Con el objeto json, se guardan y se tratan como un array
+            //Lo transformamos a un map para recorrerlo
+            success: function (json) {
+                json.map(function (obj) {
+                    $('<h1/>').text(obj.title).appendTo('body');
+                    $('<div class="content"/>')
+                    .html(json[0].html).appendTo('body');
+                });
+                //$('<h1/>').text(json[0].title).appendTo('body');
+                //$('<div class="content"/>')
+                 //   .html(json[0].html).appendTo('body');
+            },
+            // código a ejecutar si la petición falla;
+            // son pasados como argumentos a la función
+            // el objeto jqXHR (extensión de XMLHttpRequest), un texto con el estatus
+            // de la petición y un texto con la descripción del error que haya dado el servidor
+            error: function (jqXHR, status, error) {
+                alert('Disculpe, existió un problema');
+            },
+            // código a ejecutar sin importar si la petición falló o no
+            complete: function (jqXHR, status) {
+                alert('Petición realizada');
+            }
+        });
+    })
+    $("#post").click(function () {
+        $.ajax({
+            url: 'http:localhost:3000/posts',
+            data: {"id": "",
+      "title": "Luna de pluton",
+      "body" : "Mi libro",
+      "author": "DROSS"},
+            type: 'POST',
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+                //$('<h1/>').text(json[0].title).appendTo('body');
+                //$('<div class="content2"/>')
+                  //  .html(json[0].html).appendTo('body');
+                    //console.log("FUNCIONA");
+            },
+            error: function (jqXHR, status, error) {
+                alert('Disculpe, existió un problema');
+            },
+            // código a ejecutar sin importar si la petición falló o no
+            complete: function (jqXHR, status) {
+                alert('Petición realizada');
+            }
+        });
+    })
+    $("#put").click(function () {
+        $.ajax({
+            //Hay que pasarle la id a modificar en la URL
+            url: 'http:localhost:3000/posts/3',
+            data: {"id": "3",
+      "title": "Luna de pluton",
+      "body" : "Mi libro Modificado",
+      /*"author": "DROSS"*/},
+            type: 'put',
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+                //$('<h1/>').text(json[0].title).appendTo('body');
+                //$('<div class="content2"/>')
+                  //  .html(json[0].html).appendTo('body');
+                    //console.log("FUNCIONA");
+            },
+            error: function (jqXHR, status, error) {
+                alert('Disculpe, existió un problema');
+            },
+            // código a ejecutar sin importar si la petición falló o no
+            complete: function (jqXHR, status) {
+                alert('Petición realizada');
+            }
+        });
+    })
+</script>
 </html>

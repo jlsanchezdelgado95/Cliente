@@ -3,7 +3,58 @@
     {
       "id": 1,
       "title": "json-server",
-      "author": "typicode"
+      "body": "PATATA",
+      "author": "typicode",
+      "html": "HOLA"
+    },
+    {
+      "id": "2",
+      "title": "Luna de pluton",
+      "body": "Mi libro Modificado",
+      "author": "DROSS"
+    },
+    {
+      "id": "3",
+      "title": "Luna de pluton",
+      "body": "Mi libro Modificado"
+    },
+    {
+      "id": "4",
+      "title": "Luna de pluton",
+      "body": "Mi libro",
+      "author": "DROSS"
+    },
+    {
+      "id": "7pBr4xK",
+      "title": "Luna de pluton",
+      "body": "Mi libro",
+      "author": "DROSS"
+    },
+    {
+      "id": "VLjAyy0",
+      "title": "Luna de pluton",
+      "body": "Mi libro",
+      "author": "DROSS"
+    },
+    {
+      "id": "6NX1jyL",
+      "title": "Luna de pluton",
+      "body": "Mi libro",
+      "author": "DROSS"
+    }
+  ],
+  "libro": [
+    {
+      "id": 1,
+      "title": "Luna de pluton",
+      "body": "Mi libro",
+      "author": "DROSS"
+    },
+    {
+      "id": "2",
+      "title": "Luna de pluton",
+      "body": "Mi libro",
+      "author": "DROSS"
     }
   ],
   "comments": [

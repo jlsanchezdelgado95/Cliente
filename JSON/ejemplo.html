@@ -6,7 +6,7 @@
     <title>Tienda</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css.css">
+    <!--<link rel="stylesheet" href="css.css">-->
 </head>
 
 <body>
@@ -45,10 +45,10 @@
             }
             
         Carrito.prototype.vistaArticulos = function(){
-            miCarrito.articulos.forEach(function (n) {
-                document.body.innerHTML +="Codigo: " + n.codigo + " Nombre: " 
-                    + n.nombre + " Descripcion: " + n.descripcion
-                    + " Precio: " + n.precio;
+            miCarrito.articulos.forEach(function (art) {
+                document.body.innerHTML +="Codigo: " + art.codigo + " Nombre: " 
+                    + art.nombre + " Descripcion: " + art.descripcion
+                    + " Precio: " + art.precio;
             });
         }
 
@@ -68,7 +68,6 @@
             miCarrito.anyadoArticulo(art);
         }
         function verCarrito() {
-
                 miCarrito.vistaArticulos();
         }
     </script>

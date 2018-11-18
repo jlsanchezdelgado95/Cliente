@@ -1,0 +1,20 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JSON</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script>
+        var primerJson = {"name":"John", "age":31, "city":"New York"};
+        document.write("Primer Json: " + primerJson);
+        var segundoJson = '{"name":"John", "age":31, "city":"New York"}';
+        document.write("</br>Segundo Json: " + segundoJson);
+        document.write("</br>Edad primer Json: " + primerJson.age);
+        document.write("</br>" + JSON.stringify(segundoJson));
+        document.write("</br>" + segundoJson);
+    </script>
+</body>
+</html>

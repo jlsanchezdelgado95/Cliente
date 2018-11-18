@@ -11,12 +11,6 @@
         let diaMes = mes[miFecha.getMonth()];
         miFecha.setDate(1);//Cambio la fecha, para coger el primer dia
         let diaUno = miFecha.getDay();
-        //let primerDia = new Date(miFecha.getFullYear() + mes[miFecha.getMonth() + 2]);
-        //let ultimoDia = new Date(miFecha.getFullYear(), miFecha.getMonth() + 1, 0);
-        //console.log(primerDia.getDate());
-        //console.log(diaUno.getDate());
-        //console.log(ultimoDia.getDate());
-
         if (diaUno == 0) {
             diaUno = 7;
         }

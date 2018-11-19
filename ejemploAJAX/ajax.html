@@ -18,6 +18,8 @@
     <button id="get">GET</button>
     <button id="post">POST</button>
     <button id="put">PUT</button>
+    <button id="patch">PATCH</button>
+    <button id="delete">DELETE</button>
 </body>
 <script>
     $("#get").click(function () {
@@ -84,6 +86,58 @@
         });
     })
     $("#put").click(function () {
+        $.ajax({
+            //Hay que pasarle la id a modificar en la URL
+            url: 'http:localhost:3000/posts/3',
+            data: {"id": "3",
+      "title": "Luna de pluton",
+      "body" : "Mi libro Modificado",
+      /*"author": "DROSS"*/},
+            type: 'put',
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+                //$('<h1/>').text(json[0].title).appendTo('body');
+                //$('<div class="content2"/>')
+                  //  .html(json[0].html).appendTo('body');
+                    //console.log("FUNCIONA");
+            },
+            error: function (jqXHR, status, error) {
+                alert('Disculpe, existió un problema');
+            },
+            // código a ejecutar sin importar si la petición falló o no
+            complete: function (jqXHR, status) {
+                alert('Petición realizada');
+            }
+        });
+    })
+    $("#patch").click(function () {
+        $.ajax({
+            //Hay que pasarle la id a modificar en la URL
+            url: 'http:localhost:3000/posts/3',
+            data: {"id": "3",
+      "title": "Luna de pluton",
+      "body" : "Mi libro Modificado",
+      /*"author": "DROSS"*/},
+            type: 'put',
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+                //$('<h1/>').text(json[0].title).appendTo('body');
+                //$('<div class="content2"/>')
+                  //  .html(json[0].html).appendTo('body');
+                    //console.log("FUNCIONA");
+            },
+            error: function (jqXHR, status, error) {
+                alert('Disculpe, existió un problema');
+            },
+            // código a ejecutar sin importar si la petición falló o no
+            complete: function (jqXHR, status) {
+                alert('Petición realizada');
+            }
+        });
+    })
+    $("#delete").click(function () {//hacer
         $.ajax({
             //Hay que pasarle la id a modificar en la URL
             url: 'http:localhost:3000/posts/3',
